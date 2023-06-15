@@ -1,13 +1,13 @@
-package br.edu.iff.bsi.transfermark;
+package edu.iff.bsi.transfermarkt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TransfermarkApplication {
+public class TransfermarktApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TransfermarkApplication.class, args);
+		SpringApplication.run(TransfermarktApplication.class, args);
 	}
 
 }

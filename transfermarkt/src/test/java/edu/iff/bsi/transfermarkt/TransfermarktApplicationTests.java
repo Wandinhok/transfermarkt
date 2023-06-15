@@ -1,10 +1,10 @@
-package br.edu.iff.bsi.transfermark;
+package edu.iff.bsi.transfermarkt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TransfermarkApplicationTests {
+class TransfermarktApplicationTests {
 
 	@Test
 	void contextLoads() {
