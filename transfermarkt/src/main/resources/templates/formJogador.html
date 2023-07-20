@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+
+<body>
+    <div class="box">
+
+        <form action="jogador" method="post">
+
+            <label for="id"> User id: </label>
+            <input type "hidden" name="id" id="id">
+            <br>
+            <label for="nome">Digite o nome do Jogador: </label>
+            <input type "text" name="nome" nome="nome" required>
+            <br>
+            <label for="pais">Digite o pais de origem do Jogador: </label>
+            <input type "text" name="pais" pais="pais" required>
+            <br>
+            <br>
+            <label for="data_nascimento">Digite a data de nascimento: </label>
+            <input type "date" name="data_nascimento" data_nascimento="data_nascimento" required>
+            <br>
+            <br>
+            <label for="gols">Digite os gols feitos: </label>
+            <input type "number" name="gols" gols="gols" required>
+            <br>
+            <br>
+            <label for="assistencia">Digite as assistencia dadas: </label>
+            <input type "number" name="assistencia" assistencia="assistencia" required>
+            <br>
+            <br>
+            <label for="valor_mercado">Digite o valor de mercado do jogador: </label>
+            <input type "number" name="valor_mercado" valor_mercado="valor_mercado" required>
+            <br>
+
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

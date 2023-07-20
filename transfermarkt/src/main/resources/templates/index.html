@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
-    </head>
-    <body>
-         <!--   <video autoplay loop class="video" controls muted>
-                <source src="/videos/Messi.ogg" type="video/ogg">
-                <source src="/videos/Messi.webm" type="video/webm">
-                <source src="/videos/Messi.mp4" type="video/mp4">
-         </video> -->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+
+<body>
+
     <div class="box">
-    <form action="home/new/user" method="post">
-        <label for ="id"> User id: </label>
-        <input type "text" name="id" id="id" required>
-        <br>
-        <label for ="username">Enter your name: </label>
-        <input type "text" name="username" user="username" required>
-        <br>
-        <label for ="password">Enter your password: </label>
-        <input type "text" name="password" password="password" required>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-    </div>>
-    </body>
+
+        <form action="users/user" method="post" enctype="multipart/form-data">
+
+            <label for="id"> User id: </label>
+            <input type "hidden" name="id" id="id">
+            <br>
+            <label for="username">Enter your name: </label>
+            <input "text" name="username" user="username" required>
+            <br>
+            <label for="password">Enter your password: </label>
+            <input "text" name="password" password="password" required>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
 
 </html>

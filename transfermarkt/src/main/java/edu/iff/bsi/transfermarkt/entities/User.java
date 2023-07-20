@@ -2,6 +2,7 @@ package edu.iff.bsi.transfermarkt.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,23 +12,30 @@ import jakarta.persistence.Id;
 @Entity
 public class User implements Serializable{
     
+    private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
+    private long id;
+    
+    @Column(nullable = false, length = 50)
     private String username;
+
+    @Column(nullable = false, length = 35)
     private String password;
 
     
-    public User(int id, String username, String password) {
+    public User(long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
     }
     
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     public String getUsername() {
@@ -42,6 +50,7 @@ public class User implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
+
 
     
 }

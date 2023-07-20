@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+
+<body>
+    <div class="box">
+
+        <form action="times/time" method="post" >
+
+            <label for="id"> User id: </label>
+            <input type "hidden" name="id" id="id">
+            <br>
+            <label for="nome">Digite o nome do time: </label>
+            <input type "text" name="nome" user="nome" required>
+            <br>
+            <label for="pais">Digite o pais de origem do time: </label>
+            <input type "text" name="pais" pais="password" required>
+            <br>
+            <br>
+            <label for="valor_mercado">Digite o valor de mercado do time: </label>
+            <input type "text" name="valor_mercado" valor_mercado="valor_mercado" required>
+            <br>
+            <label for="valor_elenco">Digite o valor de mercado do time: </label>
+            <input type "text" name="valor_elenco" valor_elenco="valor_mercado" required>
+            <br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>
