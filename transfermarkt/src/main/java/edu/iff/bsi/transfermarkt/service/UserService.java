@@ -13,9 +13,7 @@ public class UserService {
     private UserRepository repo;
 
      public User save(User u) {
-        
-        return u;
-
+         return repo.save(u);
      }
     
 }

@@ -7,15 +7,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 @Entity
+@Table(name="Usuarios")
 public class User implements Serializable{
     
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
     private long id;
     
@@ -24,14 +26,11 @@ public class User implements Serializable{
 
     @Column(nullable = false, length = 35)
     private String password;
-
     
-    public User(long id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
-    
+
     public long getId() {
         return id;
     }

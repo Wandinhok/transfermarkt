@@ -20,16 +20,17 @@ public class UserController {
 
     @GetMapping("/user")
     public String cadastro(Model model) {
-        model.addAttribute("user", new User(1, null, null));
+        model.addAttribute("user", new User());
         return "index";
     }
 
     @PostMapping("/user")
     public String registerUser(@ModelAttribute User newuser, Model model) {
+        service.save(newuser);
         System.out.println("User ID: " + newuser.getId());
         System.out.println("User username: " + newuser.getUsername());
         System.out.println("User password: " + newuser.getPassword());
-        model.addAttribute("user", new User(1, null, null));
+        model.addAttribute("user", new User());
         return "sucess";
     }
 
