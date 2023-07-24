@@ -33,13 +33,13 @@ public class Campeonato implements Serializable{
     @ManyToMany(mappedBy = "campeonatos")
     private List<Time> times;
 
-    public Campeonato(long id, String nome, Date duracao, String pais, List<Time> times) {
+    /*public Campeonato(long id, String nome, Date duracao, String pais, List<Time> times) {
         this.id = id;
         this.nome = nome;
         this.duracao = duracao;
         this.pais = pais;
         this.times = times;
-    }
+    }*/
 
     public static long getSerialversionuid() {
         return serialVersionUID;

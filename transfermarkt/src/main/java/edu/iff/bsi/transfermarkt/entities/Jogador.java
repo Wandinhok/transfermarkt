@@ -12,6 +12,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
@@ -38,6 +40,9 @@ public class Jogador implements Serializable{
     private int assistencia;
     private long valor_mercado;
 
+    @ManyToOne
+    @JoinColumn(name  = "time_jogador")
+    private Time time;
 
     public static long getSerialversionuid() {
         return serialVersionUID;
@@ -99,6 +104,14 @@ public class Jogador implements Serializable{
         this.valor_mercado = valor_mercado;
     }
 
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+    
     
     
 

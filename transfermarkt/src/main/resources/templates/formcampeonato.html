@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>campeonato</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/style.css" media="screen" />
+
+</head>
+
+
+
+
+<body>
+
+    <div class="box">
+
+
+
+
+        <form action="campeonato" method="post">
+
+
+
+
+            <label for="id"> User id: </label>
+
+            <input type "hidden" name="id" id="id">
+
+            <br>
+
+            <label for="nome">Digite o nome do campeonato: </label>
+
+            <input type "text" name="nome" nome="nome" required>
+
+            <br>
+
+            <label for="data_nascimento">Digite quando começou o campeonato: </label>
+
+            <input type "date" name="data_nascimento" data_nascimento="data_nascimento" required>
+
+            <br>
+
+            <br>
+
+            <label for="pais">Digite o pais do campeonato: </label>
+
+            <input type "text" name="pais" pais="pais" required>
+
+            <br>
+
+            <input type="submit" value="Submit">
+
+        </form>
+
+    </div>
+
+</body>
+
+
+
+
+</html>

@@ -7,7 +7,7 @@ import edu.iff.bsi.transfermarkt.entities.Campeonato;
 
 public interface CampeonatoRepository extends JpaRepository<Campeonato, Long>{
 
-    @Query(value = "select u from Campeonato u where.nome = ?1", nativeQuery = true)
+    @Query(value = "select u from Campeonato", nativeQuery = true)
     Campeonato findByNome(String nome);
 
     
