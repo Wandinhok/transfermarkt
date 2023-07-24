@@ -41,7 +41,7 @@ public class Jogador implements Serializable{
     private long valor_mercado;
 
     @ManyToOne
-    @JoinColumn(name  = "time_jogador")
+    @JoinColumn(name  = "time_jogador", referencedColumnName = "id")
     private Time time;
 
     public static long getSerialversionuid() {
