@@ -45,3 +45,26 @@ input[type="submit"]:hover {
         width: 90%;
     }
 }
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .table td,
+  .table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table th {
+    text-align: left;
+    background-color: #f2f2f2;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }

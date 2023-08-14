@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>title</title>
+
+        <link th:href="@{style.css}" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <div class="table" style="margin-top: 20px">
+            <div class="card-header">
+                <h4 class="table th">jogadores cadastrados
+                    <a class="btn btn-primary float-right" th:href="@{~/jogadores/jogador}" role="button">Novo jogador</a>
+                </h4>
+            </div>
+
+            <div class="table" th:each="jogador : ${jogadores}">
+                <div class="card-body">
+                    <h5 class="table td" th:text="'Nome: '+${jogador.nome}"></h5>
+                    <div class="table td" th:text="'Pais: '+${jogador.pais}"></div>
+                    <div class="table td" th:text="'Data de nascimento: '+${jogador.data_nascimento}"></div>
+                    <div class="table td" th:text="'Gols: '+${jogador.gols}"></div>
+                    <div class="table td" th:text="'Assistencia : '+${jogador.assistencia}"></div>
+                    <div class="table td" th:text="'Time : '+${jogador.time}"></div>
+
+                    <a th:href="@{'~/jogadores/jogador/'+${jogador.id}}" class="btn btn-warning">Editar</a>
+                    <a th:href="@{'~/jogadores/'+${jogador.id}+'/deletar'}" class="btn btn-danger" onclick="return confirm('Deseja realmente excluir esse jogador?')">Excluir</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
