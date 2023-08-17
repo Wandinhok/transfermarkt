@@ -1,0 +1,15 @@
+1 ) Atributos :
+
+	- Alguns atributos não podem ficar não podem ser nulos, pois depende de qual atributo vai ser colocado no banco.
+	- Atributos podem ser repetidos com exceção de ID de na hora de realizar o cadastro.
+
+2 ) Segurança: 
+	
+	-  O sistema não requer um usuário além do administrador pois é apenas um site de estatitícas de futebol onde qualquer um pode acessar.
+
+3 ) Relacionamento: 
+
+	-  Time se relaciona com todas as classes existentes no projeto como Jogador e Campeonato.
+
+
+	
