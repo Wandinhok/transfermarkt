@@ -27,20 +27,12 @@ public class JogadorRestController {
 
       @Autowired
       private JogadorService service;
-
-     
-
- 
-
       @Operation(summary = "Obter uma lista de jogadores ", description = "Obter uma lista de jogadores no Transfermarkt", tags = {
                   "Jogador" })
-      @GetMapping(value = "/jogadores")
+      @GetMapping()
       public ResponseEntity getAll() {
-
             try {
-
                   return ResponseEntity.ok(service.findAll());
-
             } catch (Exception error) {
 
                   return ResponseEntity.status(500).body(error.getMessage());
@@ -53,7 +45,7 @@ public class JogadorRestController {
 
       @Operation(summary = "Buscar um jogador", description = "Obter um jogador por sua  'id'", tags = {
                   "Jogador" })
-      @GetMapping(value = "/jogador/{id}")
+      @GetMapping(value = "/{id}")
       public ResponseEntity getOne(@PathVariable("id") Long id) {
 
             try {
@@ -90,9 +82,7 @@ public class JogadorRestController {
       @Operation(summary = "Adicionando jogador", description = "Adicionando um novo jogador no banco", tags = { "Jogador" })
       @PostMapping
       public ResponseEntity save(@RequestBody Jogador jogador) {
-
                   service.save(jogador);
-
                   return ResponseEntity.status(HttpStatus.CREATED).body(jogador);
 
       }
@@ -100,8 +90,7 @@ public class JogadorRestController {
  
 
       @Operation(summary = "Atualizar dados", description = "Atualiza as informações do jogador", tags = { "Jogador" })
-      @PutMapping(value = "/jogador")
-
+      @PutMapping(value = "/{id}")
       public ResponseEntity update(@RequestBody Jogador jogador) {
                         service.update(jogador);
                         return ResponseEntity.status(HttpStatus.OK).build();
@@ -110,8 +99,8 @@ public class JogadorRestController {
 
  
       @Operation(summary = "Deletando", description = "Excluir um usuário pelo id", tags = { "Jogador" })
-      @DeleteMapping(value = "/user/{id}")
-      public ResponseEntity <?> delete(@PathVariable("id") Long id) {
+      @DeleteMapping(value = "/{id}")
+      public ResponseEntity delete(@PathVariable("id") Long id) {
                         service.delete(id);
                         return ResponseEntity.ok().build();
 

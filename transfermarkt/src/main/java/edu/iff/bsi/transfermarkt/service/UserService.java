@@ -16,6 +16,39 @@ public class UserService {
          return repo.save(u);
      }
 
+     public List<User> findAll() {
+
+        return repo.findAll();
+
+    }
+
+ 
+
+    public User save(User u) {
+
+        return repo.save(u);
+
+    }
+
+ 
+
+    public User findById(Long id) {
+
+        Optional<User> result = repo.findById(id);
+
+        return result.get();
+
+    }
+
+ 
+
+    public void delete(Long id) {
+
+        User obj = findById(id);
+
+        repo.delete(obj);
+
+    }
      
     
 }

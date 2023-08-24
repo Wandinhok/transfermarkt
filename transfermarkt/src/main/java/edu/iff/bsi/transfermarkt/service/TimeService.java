@@ -9,8 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import edu.iff.bsi.transfermarkt.entities.Time;
-
-
 import edu.iff.bsi.transfermarkt.repository.TimeRepository;
 
 @Service
@@ -31,11 +29,12 @@ public class TimeService {
     }
 
     public Time save(Time t) {
-
         return repo.save(t);
-
     }
 
+     public Optional<Time> findbyNome(String nome){
+      return repo.findByNome(nome);
+    }
     public Time findById(Long id) {
         Optional<Time> result = repo.findById(id);
         return result.get();
