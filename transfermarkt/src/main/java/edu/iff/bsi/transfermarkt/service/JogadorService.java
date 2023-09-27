@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import edu.iff.bsi.transfermarkt.entities.Jogador;
 import edu.iff.bsi.transfermarkt.repository.JogadorRepository;
@@ -22,11 +21,10 @@ public class JogadorService {
     return repo.findAll();
   }
 
-  
-    public List<Jogador> findAll(int page, int size) {
-        Pageable p = PageRequest.of(page, size);
-        return repo.findAll(p).toList();
-    }
+  public List<Jogador> findAll(int page, int size) {
+    Pageable p = PageRequest.of(page, size);
+    return repo.findAll(p).toList();
+  }
 
   public Jogador save(Jogador j) {
     return repo.save(j);
@@ -37,22 +35,18 @@ public class JogadorService {
     return result.get();
   }
 
+  public Jogador update(Jogador j) {
+     findById(j.getId());
+     return repo.save(j);
+  } 
+
   public void delete(Long id) {
     Jogador obj = findById(id);
     repo.delete(obj);
   }
 
-  public Jogador update(Jogador j) {
-        Jogador obj = findById(j.getId());
-        j.setNome(obj.getNome());
-        j.setPais(obj.getPais());
-        j.setData_nascimento(obj.getData_nascimento());
-        j.setGols(obj.getGols());
-        j.setAssistencia(obj.getAssistencia());
-        j.setValor_mercado(obj.getValor_mercado());
-        return repo.save(j);
-    }
 
   
+
 
 }

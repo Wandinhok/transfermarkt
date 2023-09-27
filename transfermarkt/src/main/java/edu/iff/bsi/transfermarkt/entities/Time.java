@@ -12,8 +12,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
+@Table(name = "times" )
 public class Time implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,9 +26,11 @@ public class Time implements Serializable {
     private long id;
 
     @Column(nullable = false, length = 50, unique = true)
+     @NotBlank(message = "Nome obrigatório.")
     private String nome;
 
-    @Column(nullable = false, length = 50, unique = true)
+    @Column(nullable = false, length = 50)
+    @NotBlank(message = "País obrigatório.")
     private String pais;
 
     @Column(nullable = false, length = 150)
@@ -40,29 +45,7 @@ public class Time implements Serializable {
     @ManyToMany
     @JoinTable(name = "associacao_times_campeonatos", joinColumns = @JoinColumn(name = "fk_time"), inverseJoinColumns = @JoinColumn(name = "fk_campeoanato"))
     private List<Campeonato> campeonatos;
-    /*
-     * 
-     * public Time(long id, String nome, String pais, long valor_mercado, long
-     * valor_elenco, List<Jogador> jogadores,
-     * 
-     * List<Campeonato> campeonatos) {
-     * 
-     * this.id = id;
-     * 
-     * this.nome = nome;
-     * 
-     * this.pais = pais;
-     * 
-     * this.valor_mercado = valor_mercado;
-     * 
-     * this.valor_elenco = valor_elenco;
-     * 
-     * this.jogadores = jogadores;
-     * 
-     * this.campeonatos = campeonatos;
-     * 
-     * }
-     */
+   
 
     public static long getSerialversionuid() {
 

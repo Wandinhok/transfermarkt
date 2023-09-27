@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,11 +19,17 @@ public class CampeonatoController {
     @Autowired
     private CampeonatoService service;
 
+    @GetMapping
+    public String getAll(Model model) {
+        model.addAttribute("campeonatos", service.findAll());
+        return "campeonatos";
+    }
+
+
+
     @GetMapping("/campeonato")
     public String cadastro(Model model) {
-
         model.addAttribute("campeonato", new Campeonato());
-
         return "formcampeonato";
 
     }
@@ -37,5 +44,13 @@ public class CampeonatoController {
         return "sucess";
 
     }
+
+     @GetMapping(path = "{id}/deletar")
+    public String deletar(@PathVariable("id") Long id) {
+        service.delete(id);
+        return "redirect:/campeonatos";
+    }
+
+    
 
 }

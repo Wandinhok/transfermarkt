@@ -10,6 +10,16 @@
             "name": "Iniciar o Chrome em relação a localhost",
             "url": "http://localhost:8080",
             "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TransfermarktApplication<transfermarkt>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "edu.iff.bsi.transfermarkt.TransfermarktApplication",
+            "projectName": "transfermarkt",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

@@ -21,7 +21,7 @@ public class UserController {
     @GetMapping("/user")
     public String cadastro(Model model) {
         model.addAttribute("user", new User());
-        return "index";
+        return "register";
     }
 
     @PostMapping("/user")

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import edu.iff.bsi.transfermarkt.entities.Time;
 
-
 import edu.iff.bsi.transfermarkt.repository.TimeRepository;
 
 @Service
@@ -18,27 +17,27 @@ import edu.iff.bsi.transfermarkt.repository.TimeRepository;
 public class TimeService {
 
     @Autowired
-
     private TimeRepository repo;
 
     public List<Time> findAll() {
         return repo.findAll();
     }
 
+
     public List<Time> findAll(int page, int size) {
         Pageable p = PageRequest.of(page, size);
         return repo.findAll(p).toList();
+    }
+
+    public Time findById(Long id) {
+        Optional<Time> result = repo.findById(id);
+        return result.get();
     }
 
     public Time save(Time t) {
 
         return repo.save(t);
 
-    }
-
-    public Time findById(Long id) {
-        Optional<Time> result = repo.findById(id);
-        return result.get();
     }
 
     public void delete(Long id) {

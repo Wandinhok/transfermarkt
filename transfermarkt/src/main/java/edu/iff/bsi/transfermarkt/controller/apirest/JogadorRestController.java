@@ -13,40 +13,50 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.iff.bsi.transfermarkt.entities.Jogador;
+import edu.iff.bsi.transfermarkt.repository.JogadorRepository;
 import edu.iff.bsi.transfermarkt.service.JogadorService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @RestController
-@RequestMapping(path = "/apirest/jogadores")
+@RequestMapping(path = "/api/jogador", produces = "application/json")
+@Tag(name = "Jogador", description = "API para gerenciar o CRUD de Jogador")
 public class JogadorRestController {
 
-    @Autowired
-    private JogadorService service;
+	@Autowired
+	private JogadorService service;
 
-    @GetMapping(path = "/{id}")
-    public ResponseEntity getOne(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(service.findById(id));
-    }
+	@Autowired
+	private JogadorRepository repository;
 
-    @PostMapping
-    public ResponseEntity save(@RequestBody Jogador jogador) {
-        jogador.setId(null);
-        service.save(jogador, null);
-        return ResponseEntity.status(HttpStatus.CREATED).body(jogador);
-    }
+	@Operation(summary = "Buscar um usuário", description = "Obter um jogador por sua  'id'", tags = {
+			"Jogador" })
+	@GetMapping(value = "/{id}", produces = "application/json")
+	public ResponseEntity getOne(@PathVariable("id") Long id) {
+		return ResponseEntity.ok(service.findById(id));
+	}
 
-    @DeleteMapping(path = "/{id}")
-        public ResponseEntity delete(@PathVariable("id") Long id){
-        service.delete(id);
-        return ResponseEntity.ok().build();
-    }
+	@Operation(summary = "Adicionando jogador", description = "Adicionando um novo jogador no banco", tags = {
+			"Jogador" })
+	@PostMapping
+	public ResponseEntity save(@RequestBody Jogador jogador) {
+		service.save(jogador);
+		return ResponseEntity.status(HttpStatus.CREATED).body(jogador);
+	}
 
- @PutMapping(path = "/{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Jogador jogador){
-        jogador.setId(id);
-        service.update(jogador, null);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }
+	@Operation(summary = "Atualizar dados", description = "Atualiza as informações do jogador", tags = { "Jogador" })
+	@PutMapping(value = "/{id}")
+	public ResponseEntity alterar(@RequestBody Jogador jogador) {
+		repository.save(jogador);
+		return ResponseEntity.status(HttpStatus.OK).build();
+	}
 
-
+	@Operation(summary = "Deletando", description = "Excluir um usuário pelo id", tags = { "Jogador" })
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity delete(@PathVariable("id") Long id) {
+		service.delete(id);
+		return ResponseEntity.ok().build();
+	}
 
 }

@@ -8,18 +8,17 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import edu.iff.bsi.transfermarkt.entities.User;
+import edu.iff.bsi.transfermarkt.entities.Admin;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface AdminRepository extends JpaRepository<Admin, Long>{
     
-    @Query(value = "SELECT u FROM User u WHERE u.id = :id")
-    public Optional<User> findById(@Param("id") Long id);
+    @Query(value = "SELECT a FROM Admin a WHERE a.id = :id")
+    public Optional<Admin> findById(@Param("id") Long id);
 
-    @Query(value = "SELECT * FROM User us. WHERE us.id = :id", 
+    @Query(value = "SELECT * FROM Admin a. WHERE a.id = :id", 
     nativeQuery = true )
-    public List<User> findall();
+    public List<Admin> findall();
 
     
 }
-

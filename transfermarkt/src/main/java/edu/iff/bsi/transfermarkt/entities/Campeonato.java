@@ -1,7 +1,6 @@
 package edu.iff.bsi.transfermarkt.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -10,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.NotBlank;
 
 
 @Entity
@@ -23,11 +23,16 @@ public class Campeonato implements Serializable{
     private long id;
 
     @Column(nullable = false, length = 50)
+     @NotBlank(message = "Nome obrigatório.")
     private String nome;
 
-    private Date duracao;
 
     @Column(nullable = false, length = 50)
+    @NotBlank(message = "Temporada atual obritória.")
+    private String duracao;
+
+    @Column(nullable = false, length = 50)
+    @NotBlank(message = "País obrigatório.")
     private String pais;
 
     @ManyToMany(mappedBy = "campeonatos")
@@ -61,11 +66,11 @@ public class Campeonato implements Serializable{
         this.nome = nome;
     }
 
-    public Date getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(Date duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 

@@ -8,7 +8,7 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Hugo 0.112.5">
-        <title>Jogadores</title>
+        <title>Campeonatos</title>
 
         <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
         <link th:href="@{/style.css}" rel="stylesheet">
@@ -186,27 +186,21 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                                <th>Temporada</th>
                                 <th>Pais</th>
-                                <th>Data Nascimento</th>
-                                <th>Gols</th>
-                                <th>Assistencia</th>
-                                <th>Clube</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="jogador:${jogadores}">
-                                <td th:text="${jogador.nome}"></td>
-                                <td th:text="${jogador.pais}"></td>
-                                <td th:text="${jogador.data_nascimento}"></td>
-                                <td th:text="${jogador.gols}"></td>
-                                <td th:text="${jogador.assistencia}"></td>
-                                <td th:text="${jogador.time.nome}"></td>
+                            <tr th:each="campeonato:${campeonatos}">
+                                <td th:text="${campeonato.nome}"></td>
+                                <td th:text="${campeonato.duracao}"></td>
+                                <td th:text="${campeonato.pais}"></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div>
+
 
 
             <div class="container">
